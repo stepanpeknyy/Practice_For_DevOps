@@ -18,7 +18,7 @@ echo "===== Log Checker ====="
 echo "File: $LOG_FILE"
 
 # Count lines with "error" (case-insensitive)
-ERROR_COUNT=$(grep -i "error" "$LOG_FILE" | wc -l)
+ERROR_COUNT=$(grep -ic "error" "$LOG_FILE")
 
 echo ""
 echo "Number of 'error' entries: $ERROR_COUNT"
