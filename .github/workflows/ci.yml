@@ -1,0 +1,23 @@
+name: Simple CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print message
+        run: echo "Hello from CI"
+
+      - name: Show current date
+        run: date
+
+      - name: List repository files
+        run: ls -la
