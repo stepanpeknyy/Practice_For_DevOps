@@ -27,8 +27,10 @@ DIR_NAME=$(basename "$SOURCE_DIR")
 # Destination path
 DEST="$BACKUP_DIR/${DIR_NAME}_$TIMESTAMP"
 
-# Check if copy was successful
+# Copy directory
+
 if cp -r "$SOURCE_DIR" "$DEST"; then
+
     echo "Backup successful!"
     echo "Location: $DEST"
 else
