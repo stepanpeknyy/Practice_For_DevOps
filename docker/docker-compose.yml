@@ -1,0 +1,7 @@
+services:
+  webserver:
+    image: nginx
+    ports:
+      - "9090:80"
+    volumes:
+      - ./app:/usr/share/nginx/html
