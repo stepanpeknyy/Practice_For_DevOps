@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: custom-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  groups:
+  - name: custom.rules
+    rules:
+    - alert: HighMemoryUsage
+      expr: container_memory_usage_bytes{namespace="default"} > 50000000
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High memory usage detected"
+        description: "Pod {{ $labels.pod }} is using more than 50MB of memory"
